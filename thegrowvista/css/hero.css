@@ -14,9 +14,19 @@
     padding: 100px var(--pad) 70px;
   }
 }
-.hero__bg{position:absolute;inset:-4%;z-index:-2;background-image:var(--hero-image,url('../assets/images/Blue bg.jpg'));
-  background-size:cover;background-position:center;transform:scale(1.06);
-  animation:heroDrift 26s ease-in-out infinite alternate;}
+.hero__bg{
+  position:absolute;
+  inset:-4%;
+  z-index:-2;
+
+  background-image:url('../assets/images/Blue bg.jpg');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  transform:scale(1.06);
+  animation:heroDrift 26s ease-in-out infinite alternate;
+}
 @keyframes heroDrift{to{transform:scale(1.14) translate3d(-1.5%,-1.5%,0)}}
 .hero__veil{
   position:absolute;
