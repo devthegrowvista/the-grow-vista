@@ -17,6 +17,42 @@
   box-shadow:inset 0 0 0 1px var(--line);backdrop-filter:blur(10px);}
 .field{display:flex;flex-direction:column;gap:7px;}
 .field--full{grid-column:1/-1;}
+input,
+select,
+textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 12px;
+  resize: vertical;
+  background: rgba(255,255,255,.04);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: .95rem;
+  box-shadow: inset 0 0 0 1px rgba(193,232,255,.16);
+  transition: box-shadow .35s, background .35s;
+}
+@media (max-width:1040px) {
+  .contact {
+    grid-template-columns: 1fr;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width:560px) {
+  .contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contact__form {
+    grid-template-columns: 1fr;
+  }
+}
 .contact__form .btn{grid-column:1/-1;}
 label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);}
 input,select,textarea{padding:13px 16px;border:0;border-radius:12px;resize:vertical;
