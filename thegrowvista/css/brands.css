@@ -1,0 +1,178 @@
+/* =========================================================
+   BRANDS — "Brands we've worked with"
+   Light / White Version
+   ========================================================= */
+
+.brands{
+  padding:80px var(--pad) var(--section-y);
+  background:#ffffff;
+}
+
+/* Section heading */
+.brands .section-head{
+  margin-bottom:34px;
+  color:#021024;
+}
+
+.brands .pill{
+  margin-bottom:14px;
+
+  /* Gold + Blue Gradient */
+  background:linear-gradient(95deg,#7DA0CA,#5483B3);
+  color:#ffffff;
+
+  border:1px solid rgba(125,160,202,.35);
+  box-shadow:0 4px 18px rgba(84,131,179,.12);
+}
+
+.brands__row{
+  position:relative;
+  overflow:hidden;
+  padding-top:10px;
+  margin-top:-10px;
+
+  mask-image:linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+
+  -webkit-mask-image:linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+/* Moving track */
+.brands__track{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  width:max-content;
+
+  animation:brandsSlide 46s linear infinite;
+}
+
+.brands__row:hover .brands__track{
+  animation-play-state:paused;
+}
+
+@keyframes brandsSlide{
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* Individual logo card */
+.brands__item{
+  flex:0 0 auto;
+
+  display:grid;
+  place-items:center;
+
+  width:150px;
+  height:86px;
+
+  border-radius:var(--r-md);
+
+  /* White / soft grey card */
+  background:#f8fafc;
+
+  /* Light border */
+  box-shadow:
+    inset 0 0 0 1px rgba(2,16,36,.10),
+    0 4px 16px rgba(2,16,36,.04);
+
+  transition:
+    transform .5s var(--ease),
+    box-shadow .5s var(--ease),
+    background .5s var(--ease);
+}
+
+.brands__item:hover{
+  transform:translateY(-3px) scale(1.03);
+  background:#f5f9f9;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(84,131,179,.45),
+    0 10px 28px rgba(2,16,36,.10);
+}
+
+/* Logos */
+.brands__logo{
+  max-width:72%;
+  max-height:42px;
+  object-fit:contain;
+
+  /* Keep logos in their original/full colours */
+  filter:none;
+  opacity:1;
+
+  transition:
+    filter .5s var(--ease),
+    opacity .5s var(--ease);
+}
+
+/* Logo hover */
+.brands__item:hover .brands__logo{
+  opacity:1;
+
+  filter:
+    drop-shadow(
+      0 4px 12px
+      rgba(84,131,179,.22)
+    );
+}
+
+/* Mobile */
+@media (max-width:680px){
+
+  .brands__item{
+    width:118px;
+    height:70px;
+  }
+
+  .brands__logo{
+    max-height:32px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+
+  .brands__track{
+    animation:none;
+  }
+}
+
+.brands {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* Background image */
+.brands::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url('../assets/images/63991.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.20;
+  z-index: 0;
+}
+
+/* Section ka actual content image ke upar rahe */
+.brands > * {
+  position: relative;
+  z-index: 1;
+}

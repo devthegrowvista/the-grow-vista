@@ -1,0 +1,152 @@
+/* =========================================================
+   about.css — quote / "about us" block (home + about page)
+   ========================================================= */
+
+.quote{position:relative;padding:var(--section-y) var(--pad);overflow:hidden;text-align:center;
+  background:#121024;}
+.quote__inner{max-width:980px;margin:0 auto;position:relative;z-index:2;}
+.orb{position:absolute;width:min(34vw,420px);aspect-ratio:1;border-radius:50%;
+  filter:blur(38px);opacity:.5;z-index:1;pointer-events:none;}
+.orb--left{left:-11%;top:8%;
+  background:conic-gradient(from 40deg,var(--aqua),var(--teal),var(--sand),var(--gold),var(--aqua));
+  animation:orbA 18s ease-in-out infinite alternate;}
+.orb--right{right:-11%;bottom:4%;
+  background:conic-gradient(from 200deg,var(--gold),var(--sand),var(--aqua),var(--teal),var(--gold));
+  animation:orbB 21s ease-in-out infinite alternate;}
+@keyframes orbA{to{transform:translate3d(24px,-40px,0) scale(1.14) rotate(38deg)}}
+@keyframes orbB{to{transform:translate3d(-28px,30px,0) scale(1.1) rotate(-32deg)}}
+
+.pill{display:inline-block;padding:10px 26px;border-radius:999px;font-size:.78rem;
+  font-weight:600;letter-spacing:.08em;color:var(--sand);background:rgba(255,255,255,.03);
+  box-shadow:inset 0 0 0 1px rgba(193,232,255,.3);backdrop-filter:blur(6px);}
+
+.quote__heading{margin:22px 0 0;}
+.quote__heading em.script{font-size:1.02em;}
+
+.quote__text{margin:24px auto 0;max-width:56ch;
+  font-size:clamp(.94rem,3.2vw,2.6rem);
+  font-weight:600;letter-spacing:-.01em;line-height:1.45;} 
+/* ---- quotation — bigger than before, sits under the heading ---- */
+.quote__text .hl{font-family:var(--script);font-style:italic;font-weight:600;
+  font-size:1em;letter-spacing:0;
+  background:linear-gradient(90deg,var(--aqua),var(--gold-soft),var(--gold),var(--aqua));
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:hlFlow 6s linear infinite;}
+
+@keyframes hlFlow{
+  0%{background-position:0% 50%;}
+  100%{background-position:300% 50%;}
+}
+
+.quote__author{margin-top:34px;display:flex;gap:14px;align-items:center;justify-content:center;text-align:left;}
+.quote__logo{width:48px;height:48px;border-radius:50%;object-fit:contain;flex-shrink:0;
+  background:rgba(255,255,255,.06);padding:7px;box-shadow:0 0 0 1px rgba(193,232,255,.3);}
+.quote__author strong{display:block;font-size:.95rem;}
+.quote__author span{font-size:.85rem;color:var(--ink-mute);}
+.quote__cta{margin-top:40px;}
+
+/* =========================================================
+   stat cards — glass panels with a glowing "live" graph each
+   ========================================================= */
+/* =========================================================
+   stat cards — flat glass, blue accent (matches reference)
+   ========================================================= */
+.stats--cards{margin-top:54px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+
+.stat-card{position:relative;display:flex;flex-direction:column;gap:18px;
+  min-height:230px;padding:22px 22px 20px;text-align:left;border-radius:var(--r-md);
+  background:rgba(255,255,255,.02);
+  box-shadow:inset 0 0 0 1px var(--line);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),background .5s;
+  overflow:hidden;}
+
+.stat-card::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  opacity:0;transition:opacity .6s var(--ease);
+  background:
+    radial-gradient(60% 90% at 0% 100%, rgba(84,131,179,.35), transparent 70%),
+    radial-gradient(60% 90% at 100% 0%, rgba(125,160,202,.3), transparent 70%);}
+
+.stat-card:hover{transform:translateY(-6px);
+  background:rgba(255,255,255,.035);
+  box-shadow:inset 0 0 0 1px rgba(193,232,255,.4);}
+
+.stat-card:hover::before{opacity:1;}
+
+.stat-card__head{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.stat-card__label{font-size:.88rem;font-weight:600;color:var(--ink);}
+.stat-card__icon{width:34px;height:34px;flex-shrink:0;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;color:var(--aqua);box-shadow:inset 0 0 0 1px rgba(193,232,255,.25);}
+.stat-card__icon svg{width:16px;height:16px;}
+
+.stat-card__number{position:relative;z-index:2;font-size:clamp(2.1rem,3.6vw,2.6rem);font-weight:700;
+  letter-spacing:-.01em;color:var(--ink);}
+.stat-card__number span{color:var(--aqua);}
+
+.stat-card__graph{position:relative;z-index:2;margin-top:auto;height:56px;}
+.stat-card__graph svg{width:100%;height:100%;display:block;overflow:visible;}
+
+/* ---- card 1: level pills ---- */
+.graph-pills{display:flex;align-items:flex-end;gap:10px;height:56px;}
+.pill-bar{position:relative;flex:1;height:100%;border-radius:999px;background:rgba(255,255,255,.06);}
+.pill-bar__dot{position:absolute;left:50%;bottom:var(--lvl);transform:translate(-50%,50%);
+  width:12px;height:12px;border-radius:50%;background:var(--aqua);
+  box-shadow:0 0 0 3px var(--navy-900),0 0 8px rgba(84,131,179,.8);}
+
+/* ---- card 2: wave line + tooltip ---- */
+.graph-wave{position:relative;}
+.wave__line{fill:none;stroke:var(--aqua);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s var(--ease);
+  filter:drop-shadow(0 0 5px rgba(84,131,179,.8));}
+.wave__dot{fill:var(--ink);opacity:0;transition:opacity .3s var(--ease) 1s;}
+.stat-card.in-view .wave__line{stroke-dashoffset:0;}
+.stat-card.in-view .wave__dot{opacity:1;}
+.wave__tip{position:absolute;top:-6px;transform:translate(-50%,-100%);font-size:.68rem;
+  padding:3px 8px;border-radius:6px;background:var(--navy-600);color:var(--ink);
+  box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap;}
+
+/* ---- card 3: area chart ---- */
+.area__fill{fill:var(--aqua);opacity:0;transition:opacity 1s var(--ease) .4s;}
+.area__line{fill:none;stroke:var(--aqua);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:100;stroke-dashoffset:100;transition:stroke-dashoffset 1.1s var(--ease);
+  filter:drop-shadow(0 0 5px rgba(84,131,179,.8));}
+.stat-card.in-view .area__fill{opacity:.18;}
+.stat-card.in-view .area__line{stroke-dashoffset:0;}
+
+/* ---- card 4: bar chart, last bar hollow/highlighted ---- */
+.graph-bars2 rect{fill:var(--aqua);opacity:.85;transform:scaleY(0);transform-box:fill-box;transform-origin:bottom;
+  transition:transform .6s var(--ease);}
+.graph-bars2 rect:nth-child(1){transition-delay:.05s}
+.graph-bars2 rect:nth-child(2){transition-delay:.15s}
+.graph-bars2 rect:nth-child(3){transition-delay:.25s}
+.graph-bars2 rect:nth-child(4){transition-delay:.35s}
+.graph-bars2 .bar--hollow{fill:none;stroke:var(--aqua);stroke-width:2;transition-delay:.45s;
+  filter:drop-shadow(0 0 5px rgba(84,131,179,.7));}
+.stat-card.in-view .graph-bars2 rect{transform:scaleY(1);}
+
+/* card 1: pills — last dot gold */
+.pill-bar:last-child .pill-bar__dot{background:var(--gold);
+  box-shadow:0 0 0 3px var(--navy-900),0 0 8px rgba(125,160,202,.8);}
+
+/* card 2: wave — end dot gold */
+.wave__dot{fill:var(--gold);opacity:0;transition:opacity .3s var(--ease) 1s;
+  filter:drop-shadow(0 0 5px rgba(125,160,202,.8));}
+.wave__tip{background:var(--navy-600);color:var(--gold-soft);}
+
+/* card 3: area — stroke aqua, peak point gold via extra dot */
+.area__peak{fill:var(--gold);opacity:0;transition:opacity .3s var(--ease) 1.1s;
+  filter:drop-shadow(0 0 5px rgba(125,160,202,.8));}
+.stat-card.in-view .area__peak{opacity:1;}
+
+/* card 4: bars — last bar gold instead of hollow-aqua */
+.graph-bars2 .bar--hollow{fill:none;stroke:var(--gold);stroke-width:2;transition-delay:.45s;
+  filter:drop-shadow(0 0 5px rgba(125,160,202,.7));}
+
+
+@media (max-width:1040px){
+  .stats--cards{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:560px){
+  .stats--cards{grid-template-columns:1fr;}
+  .stat-card{min-height:0;}
+}

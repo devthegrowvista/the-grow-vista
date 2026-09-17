@@ -1,0 +1,32 @@
+/* =========================================================
+   faqs.css — FAQ accordion (home + faqs page)
+   ========================================================= */
+
+.faqs{padding:var(--section-y) var(--pad);background:#ffffff;
+  display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(32px,6vw,90px);}
+.faqs__left{align-self:start;position:sticky;top:120px;}
+.bracket{font-size:.72rem;letter-spacing:.2em;color:rgba(2,16,36,.6);}
+.faqs__title{margin:18px 0 20px;font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;
+  letter-spacing:-.045em;line-height:.9;color:var(--navy-900);}
+.faqs__left p{max-width:34ch;color:rgba(2,16,36,.72);margin-bottom:26px;}
+.faqs__right{border-top:1px solid rgba(2,16,36,.18);}
+.acc{border-bottom:1px solid rgba(2,16,36,.18);}
+.acc__head{width:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:23px 0;border:0;background:none;cursor:pointer;text-align:left;font-family:var(--sans);
+  font-size:clamp(1rem,1.9vw,1.3rem);font-weight:500;color:rgba(2,16,36,.78);transition:color .35s;}
+.acc__head:hover,.acc.is-open .acc__head{color:var(--navy-900);}
+.acc__head i{flex-shrink:0;width:22px;height:22px;position:relative;transition:transform .45s var(--ease);}
+.acc__head i::before,.acc__head i::after{content:"";position:absolute;left:50%;top:50%;
+  background:currentColor;border-radius:2px;}
+.acc__head i::before{width:14px;height:1.5px;transform:translate(-50%,-50%);}
+.acc__head i::after{width:1.5px;height:14px;transform:translate(-50%,-50%);
+  transition:transform .45s var(--ease),opacity .3s;}
+.acc.is-open .acc__head i{transform:rotate(180deg);color:var(--teal);}
+.acc.is-open .acc__head i::after{transform:translate(-50%,-50%) scaleY(0);opacity:0;}
+.acc__panel{overflow:hidden;height:0;transition:height .5s var(--ease);}
+.acc__panel p{padding:0 0 26px;max-width:62ch;color:rgba(2,16,36,.68);font-size:.95rem;}
+
+@media (max-width:1040px){
+  .faqs{grid-template-columns:1fr;}
+  .faqs__left{position:static;}
+}

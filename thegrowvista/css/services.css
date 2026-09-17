@@ -1,0 +1,95 @@
+/* =========================================================
+   services.css — auto-scrolling rail (home) + detailed list (services page)
+   ========================================================= */
+
+.services{padding:var(--section-y) 0;
+  background:radial-gradient(70% 90% at 85% 10%,rgba(2,16,36,.07),transparent 60%),#C1E8FF;
+  border-block:1px solid rgba(2,16,36,.1);}
+.services .section-head{padding-inline:var(--pad);}
+.services .section-head h2{color:var(--navy-900);}
+.services .section-lead{color:rgba(2,16,36,.68);}
+.services .pill{color:var(--navy-900);background:rgba(2,16,36,.05);
+  box-shadow:inset 0 0 0 1px rgba(2,16,36,.28);}
+.rail{overflow:hidden;padding:26px 0 30px;}
+.rail__track{display:flex;gap:22px;width:max-content;padding-inline:var(--pad);
+  animation:railSlide 60s linear infinite;}
+.rail:hover .rail__track,.rail__track:hover{animation-play-state:paused;}
+@keyframes railSlide{to{transform:translateX(-50%)}}
+
+
+
+.card{
+  flex:0 0 min(520px,84vw);display:grid;grid-template-columns:1fr .95fr;gap:18px;align-items:center;
+  padding:26px;border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(84,131,179,.7),rgba(5,38,89,.94));
+  box-shadow:inset 0 0 0 1px rgba(193,232,255,.12);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+}
+.card:hover{transform:translateY(-8px);
+  box-shadow:inset 0 0 0 1px rgba(84,131,179,.45),0 26px 60px -30px rgba(84,131,179,.5);}
+.card h3{font-size:clamp(1.2rem,2.3vw,1.6rem);font-weight:400;}
+.card h3 span{display:block;margin-top:6px;font-size:.76rem;font-weight:500;color:var(--ink-mute);}
+.tags{margin:18px 0 20px;display:flex;flex-wrap:wrap;gap:8px;}
+.tags li{padding:6px 14px;border-radius:999px;font-size:.72rem;color:rgb(36, 35, 35);
+  box-shadow:inset 0 0 0 1px rgba(30, 30, 30, 0.2);}
+.card__media{aspect-ratio:1/1;border-radius:var(--r-md);background-image:var(--img);
+  background-size:cover;background-position:center;
+  box-shadow:inset 0 0 0 1px rgba(193,232,255,.14);transition:transform .6s var(--ease);}
+.card:hover .card__media{transform:scale(1.04);}
+.rail-cta{display:flex;justify-content:center;margin-top:10px;padding-inline:var(--pad);}
+
+/* detailed list — services.html */
+.svc-list{padding:var(--section-y) var(--pad);display:grid;gap:22px;max-width:var(--shell);margin:0 auto;}
+.svc{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:30px;align-items:center;
+  padding:clamp(24px,3.4vw,40px);border-radius:var(--r-lg);
+  background:linear-gradient(150deg,rgba(84,131,179,.45),rgba(5,38,89,.9));
+  box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .45s;
+}
+.svc:hover{box-shadow:inset 0 0 0 1px rgba(84,131,179,.4);}
+.svc:nth-child(even){grid-template-columns:minmax(0,320px) minmax(0,1fr);}
+.svc:nth-child(even) .svc__art{order:-1;}
+.svc__num{font-family:var(--script);font-style:italic;font-size:2.2rem;color:var(--gold);line-height:1;}
+.svc h2{margin:6px 0 12px;font-size:clamp(1.4rem,3vw,2.1rem);font-weight:600;}
+.svc__lead{color:var(--ink-mute);}
+.svc__points{margin-top:20px;display:grid;gap:9px;}
+.svc__points li{position:relative;padding-left:22px;font-size:.93rem;color:var(--ink);}
+.svc__points li::before{content:"";position:absolute;left:0;top:10px;width:9px;height:9px;
+  border-radius:50%;background:linear-gradient(120deg,var(--gold),var(--aqua));}
+.svc__art{aspect-ratio:1/1;border-radius:var(--r-md);background-image:var(--img);
+  background-size:cover;background-position:center;box-shadow:inset 0 0 0 1px var(--line);}
+.svc .btn{margin-top:24px;}
+
+@media (max-width:1040px){
+  .svc,.svc:nth-child(even){grid-template-columns:1fr;}
+  .svc__art{max-width:320px;order:-1;}
+}
+@media (max-width:920px){
+  .card{grid-template-columns:1fr;}
+  .card__media{aspect-ratio:16/10;order:-1;}
+}
+
+.services {
+  position: relative;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* Background image */
+.services::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('../assets/images/idk.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.70;
+  z-index: 0;
+}
+
+/* Existing content image ke upar rahe */
+.services > * {
+  position: relative;
+  z-index: 1;
+}

@@ -1,0 +1,38 @@
+/* =========================================================
+   portfolio.css — "missions completed" grid (home + portfolio page)
+   ========================================================= */
+
+.portfolio{padding:var(--section-y) var(--pad);
+  background:linear-gradient(180deg,var(--navy-900),var(--navy-800));}
+.work-grid{max-width:var(--shell);margin:0 auto;display:grid;gap:20px;
+  grid-template-columns:repeat(6,1fr);}
+.work{
+  position:relative;grid-column:span 3;min-height:340px;border-radius:var(--r-lg);overflow:hidden;
+  display:flex;align-items:flex-end;padding:26px;background-image:var(--img);
+  background-size:cover;background-position:center;
+  box-shadow:inset 0 0 0 1px rgba(193,232,255,.12);
+  transition:transform .55s var(--ease),box-shadow .55s var(--ease);
+}
+.work--tall{grid-column:span 2;min-height:400px;}
+.work--wide{grid-column:span 4;}
+.work::before{content:"";position:absolute;inset:0;transition:opacity .5s;
+  background:linear-gradient(180deg,rgba(2,16,36,.05) 30%,rgba(2,16,36,.92));}
+.work::after{content:"";position:absolute;inset:0;opacity:0;transition:opacity .5s;
+  background:linear-gradient(140deg,rgba(125,160,202,.35),rgba(84,131,179,.35));mix-blend-mode:overlay;}
+.work:hover{transform:translateY(-6px);box-shadow:inset 0 0 0 1px rgba(84,131,179,.45),
+  0 30px 70px -40px rgba(84,131,179,.7);}
+.work:hover::after{opacity:1;}
+.work__meta{position:relative;z-index:1;}
+.work__tag{display:inline-block;margin-bottom:10px;padding:5px 13px;border-radius:999px;
+  font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--navy-900);
+  background:linear-gradient(110deg,var(--sand),var(--gold));}
+.work__meta h3{font-size:1.35rem;font-weight:600;}
+.work__meta span{font-size:.8rem;color:var(--aqua);}
+.work__result{margin-top:8px;font-family:var(--script);font-style:italic;font-size:1.15rem;color:var(--sand);}
+
+@media (max-width:1040px){
+  .work,.work--tall,.work--wide{grid-column:span 3;}
+}
+@media (max-width:680px){
+  .work,.work--tall,.work--wide{grid-column:span 6;}
+}

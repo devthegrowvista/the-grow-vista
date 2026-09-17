@@ -1,0 +1,10 @@
+/* home.css — page stylesheet for index.html
+   Home uses every component, so it imports the full set. */
+@import url('shared.css');
+@import url('hero.css');
+@import url('brands.css');
+@import url('about.css');
+@import url('services.css');
+@import url('portfolio.css');
+@import url('testimonials.css');
+@import url('faqs.css');
