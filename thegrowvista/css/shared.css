@@ -252,7 +252,7 @@ ul{margin:0;padding:0;list-style:none;}
 /* Collapsed by default to a single toggle (chat-bubble icon). Tapping
    it fans the social links up above it and morphs the icon into a
    close (×) mark; tapping again, clicking outside, or Escape closes it. */
-.float-cluster{position:fixed;right:22px;bottom:22px;z-index:80;
+.float-cluster{position:fixed;right:22px;bottom:95px;z-index:80;
   display:flex;flex-direction:column;align-items:center;gap:12px;}
 
 .float-cluster__panel{display:flex;flex-direction:column;align-items:center;gap:12px;
