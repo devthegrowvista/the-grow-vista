@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>About — The Grow Vista</title>
 <meta name="description" content="Who we are, what we believe and how we run projects at The Grow Vista." />
-<link rel="icon" href="assets/images/logo icon.png" type="image" />
+<link rel="icon" href="assets/images/logo icon.png" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@1,300;1,400;1,500;1,600;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -16,14 +16,52 @@
 <header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="index.html" class="brand">
-       <img src="assets/images/logo (2).png" alt="The Grow Vista logo" class="brand__logo" />
-     
+      <img src="assets/images/logo (2).png" alt="The Grow Vista logo" class="brand__logo" />
     </a>
 
     <nav class="nav" id="nav">
         <a href="index.html" class="nav__link">Home</a>
-        <a href="services.html" class="nav__link">Services</a>
-        
+        <div class="nav__item nav__item--dropdown">
+          <a href="services.html" class="nav__link">Services <span class="nav__chevron">▾</span></a>
+          <div class="nav__dropdown">
+            <a href="service-aio.html" class="dropdown__link">
+              <span class="dropdown__title">AI Optimization (AIO)</span>
+              <span class="dropdown__desc">AI Search, LLM & Answer Engine Visibility</span>
+            </a>
+            <a href="service-local-seo.html" class="dropdown__link">
+              <span class="dropdown__title">Local SEO</span>
+              <span class="dropdown__desc">Google Business Profile & Map Pack 3-Pack</span>
+            </a>
+            <a href="service-social-media-marketing.html" class="dropdown__link">
+              <span class="dropdown__title">Social Media Marketing</span>
+              <span class="dropdown__desc">Organic Content, Reels & Community</span>
+            </a>
+            <a href="service-google-ads.html" class="dropdown__link">
+              <span class="dropdown__title">Google Ads</span>
+              <span class="dropdown__desc">High-Intent Paid Search & Performance Max</span>
+            </a>
+            <a href="service-reputation-management.html" class="dropdown__link">
+              <span class="dropdown__title">Reputation Management</span>
+              <span class="dropdown__desc">5-Star Reviews & Trust Acceleration</span>
+            </a>
+            <a href="service-website-development.html" class="dropdown__link">
+              <span class="dropdown__title">Website Development</span>
+              <span class="dropdown__desc">Sub-Second Speed & Modern Architecture</span>
+            </a>
+            <a href="service-ui-ux-designing.html" class="dropdown__link">
+              <span class="dropdown__title">UI/UX Designing</span>
+              <span class="dropdown__desc">Conversion Prototypes & Design Systems</span>
+            </a>
+            <a href="service-logo-designing.html" class="dropdown__link">
+              <span class="dropdown__title">Logo Designing</span>
+              <span class="dropdown__desc">Brand Identity Marks & Style Guides</span>
+            </a>
+            <div class="dropdown__footer">
+              <a href="services.html" class="dropdown__all">All Services Overview →</a>
+            </div>
+          </div>
+        </div>
+        <a href="portfolio.html" class="nav__link">Portfolio</a>
         <a href="testimonials.html" class="nav__link">Testimonials</a>
         <a href="about.html" class="nav__link is-active">About</a>
         <a href="faqs.html" class="nav__link">FAQs</a>
@@ -42,7 +80,7 @@
   </div>
 </header>
 
-<section class="page-hero" style="--page-hero-image:url('../assets/images/about.png')">
+<section class="page-hero" style="--page-hero-image:url('assets/images/hero-about.svg')">
   <div class="page-hero__bg"></div>
   <div class="page-hero__veil"></div>
   <div class="shell">
@@ -51,6 +89,7 @@
     <p>We partner with brands to build a powerful online presence through strategies that drive visibility, engagement and long-term growth.</p>
   </div>
 </section>
+
 <section class="quote">
   <div class="orb orb--left"></div>
   <div class="orb orb--right"></div>
@@ -66,7 +105,6 @@
       <img src="assets/images/logo.svg" alt="The Grow Vista logo" class="quote__logo" />
       <div><strong>The Grow Vista</strong><span>Guiding businesses to digital wins</span></div>
     </div>
-
     <div class="stats stats--cards">
       <div class="stat-card stat-card--a">
         <div class="stat-card__head">
@@ -83,7 +121,6 @@
           <span class="pill-bar" style="--lvl:80%"><span class="pill-bar__dot"></span></span>
         </div>
       </div>
-
       <div class="stat-card stat-card--b">
         <div class="stat-card__head">
           <span class="stat-card__label">AI Trained Models</span>
@@ -100,7 +137,6 @@
           <span class="wave__tip" style="left:70%">875.01</span>
         </div>
       </div>
-
       <div class="stat-card stat-card--c">
         <div class="stat-card__head">
           <span class="stat-card__label">Efficiency Boost</span>
@@ -117,7 +153,6 @@
           </svg>
         </div>
       </div>
-
       <div class="stat-card stat-card--d">
         <div class="stat-card__head">
           <span class="stat-card__label">Growth Results</span>
@@ -178,16 +213,15 @@
 
 <footer class="site-footer">
   <div class="footer__top">
-    <a href="index.html" class="brand">
+   <a href="index.html" class="brand">
       <img src="assets/images/logo (2).png" alt="The Grow Vista logo" class="brand__logo" />
     </a>
     <p class="footer__tag">&mdash; Guiding businesses to digital wins.</p>
   </div>
 
   <div class="footer__cols">
-    <div><h4>Navigate</h4><a href="index.html">Home</a><a href="services.html">Services</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="faqs.html">FAQs</a><a href="contact.html">Contact</a></div>
-    <div><h4>Services</h4><a href="services.html">AIO</a><a href="services.html">Local SEO</a><a href="services.html">Social Media Marketing</a><a href="services.html">Google Ads</a><a href="services.html">Reputation Management</a><a href="services.html">Website Development</a></div>
-    <div>
+        <div><h4>Navigate</h4><a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="testimonials.html">Testimonials</a><a href="about.html">About</a><a href="faqs.html">FAQs</a><a href="contact.html">Contact</a></div>
+    <div><h4>Services</h4><a href="service-aio.html">AIO</a><a href="service-local-seo.html">Local SEO</a><a href="service-social-media-marketing.html">Social Media Marketing</a><a href="service-google-ads.html">Google Ads</a><a href="service-reputation-management.html">Reputation Management</a><a href="service-website-development.html">Website Development</a></div>
       <h4>Contact</h4>
       <a href="tel:+18622033859">+1 862-203-3859</a>
       <a href="mailto:info@thegrowvista.com">info@thegrowvista.com</a>
@@ -196,20 +230,9 @@
     <div>
       <h4>Follow</h4>
       <div class="socials">
-        
         <a href="https://wa.me/18622033859" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2s-1.1.3-3.6-.8a12.6 12.6 0 0 1-5-4.6c-.4-.6-1-1.7-1-3.2a3.4 3.4 0 0 1 1.1-2.5.9.9 0 0 1 .7-.3h.5c.2 0 .4 0 .6.5l.9 2.1a.6.6 0 0 1 0 .5 6.4 6.4 0 0 1-.5.7c-.2.2-.4.4-.2.7a9.3 9.3 0 0 0 1.7 2.1 8.4 8.4 0 0 0 2.4 1.5c.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3a2 2 0 0 1-.1 1z"/></svg></a>
-          <!-- Facebook -->
-  <a href="https://www.facebook.com/p/The-Grow-Vista-61581931002823/"
-     target="_blank"
-     rel="noopener"
-     aria-label="Facebook">
-    <svg viewBox="0 0 24 24">
-      <path d="M14 8h3V4.5c-.5-.1-1.7-.2-3.2-.2-3.2 0-5.4 2-5.4 5.5V13H5v4h3.4v7h4.1v-7h3.4l.6-4h-4v-2.8c0-1.1.3-2.2 1.5-2.2z"/>
-    </svg>
-  </a>
-        <a href="https://www.instagram.com/thegrowvista"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3A4.3 4.3 0 0 1 12 16.3zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg></a>
-        <a href="https://www.linkedin.com/company/the-grow-vista"><svg viewBox="0 0 24 24"><path d="M6.9 21H3.6V9h3.3v12zM5.2 7.6a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9zM21 21h-3.3v-6c0-1.5-.5-2.4-1.8-2.4a1.9 1.9 0 0 0-1.8 1.3 2.4 2.4 0 0 0-.1.9V21H10.7s.1-10.6 0-11.7H14v1.8a3.6 3.6 0 0 1 3.3-1.8c2.3 0 3.7 1.5 3.7 4.7V21z"/></svg></a>
-      </div>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3A4.3 4.3 0 0 1 12 16.3zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.9 21H3.6V9h3.3v12zM5.2 7.6a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9zM21 21h-3.3v-6c0-1.5-.5-2.4-1.8-2.4a1.9 1.9 0 0 0-1.8 1.3 2.4 2.4 0 0 0-.1.9V21H10.7s.1-10.6 0-11.7H14v1.8a3.6 3.6 0 0 1 3.3-1.8c2.3 0 3.7 1.5 3.7 4.7V21z"/></svg></a>
       </div>
     </div>
   </div>
@@ -222,75 +245,8 @@
 
 <div class="float-cluster" id="floatCluster">
   <div class="float-cluster__panel">
-   <a href="https://www.linkedin.com/company/the-grow-vista"
-   class="fc-linkedin"
-   target="_blank"
-   rel="noopener"
-   aria-label="LinkedIn">
-
-  <svg viewBox="0 0 24 24" width="22" height="22">
-    <path
-      fill="currentColor"
-      d="M6.9 21H3.6V9h3.3v12z
-         M5.2 7.6a1.9 1.9 0 1 1 1.9-1.9
-         1.9 1.9 0 0 1-1.9 1.9z
-         M21 21h-3.3v-6c0-1.5-.5-2.4-1.8-2.4
-         a1.9 1.9 0 0 0-1.8 1.3
-         2.4 2.4 0 0 0-.1.9V21h-3.3
-         s.1-10.6 0-11.7H14v1.8
-         a3.6 3.6 0 0 1 3.3-1.8
-         c2.3 0 3.7 1.5 3.7 4.7V21z"/>
-  </svg>
-
-</a>
-<a href="https://www.instagram.com/thegrowvista"
-   class="fc-instagram"
-   target="_blank"
-   rel="noopener"
-   aria-label="Instagram">
-
-  <svg viewBox="0 0 24 24" width="22" height="22">
-    <path
-      fill="currentColor"
-      d="M12 2.2c3.2 0 3.6 0 4.9.1
-         1.2.1 1.8.2 2.2.4.6.2 1 .5
-         1.4.9.4.4.7.8.9 1.4.2.4.3 1
-         .4 2.2.1 1.3.1 1.7.1 4.9
-         s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4
-         2.2-.2.6-.5 1-.9 1.4
-         -.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4
-         -1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1
-         c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9
-         -.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2
-         C2.2 15.6 2.2 15.2 2.2 12
-         s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2
-         .2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9
-         .4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2z
-         M12 5.3A6.7 6.7 0 1 0 18.7 12
-         6.7 6.7 0 0 0 12 5.3zm0 11
-         a4.3 4.3 0 1 1 4.3-4.3
-         4.3 4.3 0 0 1-4.3 4.3zm6.9-11.2
-         a1.6 1.6 0 1 1-1.6-1.6
-         1.6 1.6 0 0 1 1.6 1.6z"/>
-  </svg>
-
-</a>
-
-<a href="https://www.facebook.com/p/The-Grow-Vista-61581931002823/"
-   class="fc-facebook"
-   target="_blank"
-   rel="noopener"
-   aria-label="Facebook">
-
-  <svg viewBox="0 0 24 24" width="22" height="22">
-    <path
-      fill="currentColor"
-      d="M14 8h3V4.5c-.5-.1-1.7-.2-3.2-.2
-         -3.2 0-5.4 2-5.4 5.5V13H5v4h3.4v7h4.1v-7h3.4l.6-4h-4v-2.8
-         c0-1.1.3-2.2 1.5-2.2z"/>
-  </svg>
-
-</a>
+    <a href="#" class="fc-linkedin" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M6.9 21H3.6V9h3.3v12zM5.2 7.6a1.9 1.9 0 1 1 1.9-1.9 1.9 1.9 0 0 1-1.9 1.9zM21 21h-3.3v-6c0-1.5-.5-2.4-1.8-2.4a1.9 1.9 0 0 0-1.8 1.3 2.4 2.4 0 0 0-.1.9V21H10.7s.1-10.6 0-11.7H14v1.8a3.6 3.6 0 0 1 3.3-1.8c2.3 0 3.7 1.5 3.7 4.7V21z"/></svg></a>
+    <a href="#" class="fc-instagram" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.1A6.7 6.7 0 1 0 18.7 12 6.7 6.7 0 0 0 12 5.3zm0 11a4.3 4.3 0 1 1 4.3-4.3A4.3 4.3 0 0 1 12 16.3zm6.9-11.2a1.6 1.6 0 1 1-1.6-1.6 1.6 1.6 0 0 1 1.6 1.6z"/></svg></a>
     <a href="https://wa.me/18622033859" class="fc-whatsapp" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.6 14.2c-.2.6-1.3 1.2-1.8 1.2s-1.1.3-3.6-.8a12.6 12.6 0 0 1-5-4.6c-.4-.6-1-1.7-1-3.2a3.4 3.4 0 0 1 1.1-2.5.9.9 0 0 1 .7-.3h.5c.2 0 .4 0 .6.5l.9 2.1a.6.6 0 0 1 0 .5 6.4 6.4 0 0 1-.5.7c-.2.2-.4.4-.2.7a9.3 9.3 0 0 0 1.7 2.1 8.4 8.4 0 0 0 2.4 1.5c.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.6.3a2 2 0 0 1-.1 1z"/></svg></a>
   </div>
   <button type="button" class="fc-toggle" id="floatToggle" aria-label="Show social links" aria-expanded="false">

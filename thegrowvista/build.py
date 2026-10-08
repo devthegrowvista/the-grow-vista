@@ -23,14 +23,60 @@ ICONS = {
 
 
 def header(active, prefix=""):
-    links = "".join(
-        f'\n        <a href="{prefix}{href}" class="nav__link{" is-active" if label == active else ""}">{label}</a>'
-        for label, href in NAV)
+    dropdown_html = f'''
+        <div class="nav__item nav__item--dropdown">
+          <a href="{prefix}services.html" class="nav__link{" is-active" if active == "Services" else ""}">Services <span class="nav__chevron">▾</span></a>
+          <div class="nav__dropdown">
+            <a href="{prefix}service-aio.html" class="dropdown__link">
+              <span class="dropdown__title">AI Optimization (AIO)</span>
+              <span class="dropdown__desc">AI Search, LLM & Answer Engine Visibility</span>
+            </a>
+            <a href="{prefix}service-local-seo.html" class="dropdown__link">
+              <span class="dropdown__title">Local SEO</span>
+              <span class="dropdown__desc">Google Business Profile & Map Pack 3-Pack</span>
+            </a>
+            <a href="{prefix}service-social-media-marketing.html" class="dropdown__link">
+              <span class="dropdown__title">Social Media Marketing</span>
+              <span class="dropdown__desc">Organic Content, Reels & Community</span>
+            </a>
+            <a href="{prefix}service-google-ads.html" class="dropdown__link">
+              <span class="dropdown__title">Google Ads</span>
+              <span class="dropdown__desc">High-Intent Paid Search & Performance Max</span>
+            </a>
+            <a href="{prefix}service-reputation-management.html" class="dropdown__link">
+              <span class="dropdown__title">Reputation Management</span>
+              <span class="dropdown__desc">5-Star Reviews & Trust Acceleration</span>
+            </a>
+            <a href="{prefix}service-website-development.html" class="dropdown__link">
+              <span class="dropdown__title">Website Development</span>
+              <span class="dropdown__desc">Sub-Second Speed & Modern Architecture</span>
+            </a>
+            <a href="{prefix}service-ui-ux-designing.html" class="dropdown__link">
+              <span class="dropdown__title">UI/UX Designing</span>
+              <span class="dropdown__desc">Conversion Prototypes & Design Systems</span>
+            </a>
+            <a href="{prefix}service-logo-designing.html" class="dropdown__link">
+              <span class="dropdown__title">Logo Designing</span>
+              <span class="dropdown__desc">Brand Identity Marks & Style Guides</span>
+            </a>
+            <div class="dropdown__footer">
+              <a href="{prefix}services.html" class="dropdown__all">All Services Overview →</a>
+            </div>
+          </div>
+        </div>'''
+
+    other_nav = []
+    for label, href in NAV:
+        if label == "Services":
+            other_nav.append(dropdown_html)
+        else:
+            other_nav.append(f'\n        <a href="{prefix}{href}" class="nav__link{" is-active" if label == active else ""}">{label}</a>')
+    
+    links = "".join(other_nav)
     return f'''<header class="site-header" id="siteHeader">
   <div class="header-inner">
     <a href="{prefix}index.html" class="brand">
-      <img src="{prefix}assets/images/logo.svg" alt="The Grow Vista logo" class="brand__logo" />
-      <span class="brand__text">THE GROW <em>Vista</em></span>
+      <img src="{prefix}assets/images/logo (2).png" alt="The Grow Vista logo" class="brand__logo" />
     </a>
 
     <nav class="nav" id="nav">{links}
@@ -135,69 +181,66 @@ def page(filename, title, desc, active, body, page_css, prefix=""):
 
 
 def img_url(img, prefix=""):
-    """SERVICES/WORKS image field accepts either a local file basename (no
-    extension, resolved against assets/images/<name>.svg) or a full URL —
-    used right now for the picsum.photos dummy placeholder photos."""
-    return img if img.startswith("http") else f"{prefix}assets/images/{img}.svg"
+    """SERVICES/WORKS image field accepts either a local filename or full URL."""
+    if img.startswith("http"):
+        return img
+    if "." in img:
+        return f"{prefix}assets/images/{img}"
+    return f"{prefix}assets/images/{img}.svg"
 
 
 # ------------------------------------------------------------------ data
-# Service and portfolio art below points at picsum.photos placeholder
-# photos (seeded, so each stays the same image on every rebuild) so the
-# cards look like a finished site instead of empty boxes. Swap any of
-# these for your own image — either a full URL, or a local basename
-# from assets/images/ (no extension, e.g. "svc-aio" -> svc-aio.svg).
 SERVICES = [
-    ("AIO", "Artificial Intelligence Optimization", "https://picsum.photos/seed/gv-aio/800/800",
+    ("AIO", "Artificial Intelligence Optimization", "AI.jpg",
      ["AI Search", "LLM Visibility", "Schema"],
      "Being on page one is no longer enough. We make sure your brand is the one AI assistants quote when someone asks for a recommendation in your category.",
      ["Entity and schema markup so machines understand who you are",
       "Content structured for answer engines, not just search engines",
       "Monitoring of how ChatGPT, Gemini and AI Overviews describe you",
       "Fixing wrong or outdated facts that AI models repeat about your brand"]),
-    ("Local SEO", "", "https://picsum.photos/seed/gv-seo/800/800",
+    ("Local SEO", "", "Local seo.jpg",
      ["Google Business", "Map Pack", "Citations"],
      "Most buying decisions start with a map. We get your business into the top three results for the searches that happen within driving distance of your door.",
      ["Google Business Profile setup, optimisation and weekly posting",
       "Location and service pages that actually rank",
       "Citation building and NAP consistency across directories",
       "Review velocity strategy to hold your map position"]),
-    ("Social Media Marketing", "", "https://picsum.photos/seed/gv-smm/800/800",
+    ("Social Media Marketing", "", "marketing.jpg",
      ["Content", "Community", "Reels"],
      "Consistent, on-brand content that earns attention instead of buying it, plus the community management that turns followers into customers.",
      ["Monthly content calendar built around your offers",
       "Short-form video and reels production",
       "Comment and DM management within business hours",
       "Monthly performance report with what to double down on"]),
-    ("Google Ads", "", "https://picsum.photos/seed/gv-ads/800/800",
+    ("Google Ads", "", "Googleads.jpg",
      ["Search", "Performance Max", "Retargeting"],
      "Paid traffic that pays for itself. We build campaigns around profit per lead, not clicks, and cut anything that does not convert.",
      ["Keyword and competitor research before a dollar is spent",
       "Conversion tracking set up properly from day one",
       "Landing pages built to match the ad promise",
       "Weekly bid, budget and negative keyword management"]),
-    ("Reputation Management", "", "https://picsum.photos/seed/gv-rep/800/800",
+    ("Reputation Management", "", "Reputation Management.jpg",
      ["Reviews", "Monitoring", "Recovery"],
      "Your rating is your price tag. We build a steady flow of honest reviews and handle the difficult ones before they cost you customers.",
      ["Automated review requests after every job",
       "Response templates in your brand voice",
       "Alerts across Google, Facebook and industry sites",
       "Recovery plan for damaged listings and ratings"]),
-    ("Website Development", "", "https://picsum.photos/seed/gv-web/800/800",
+    ("Website Development", "", "Web.jpg",
      ["Frontend", "WordPress", "Core Web Vitals"],
      "Fast, clean, mobile-first websites that load in under a second and are built to be found, not just to look good in a portfolio.",
      ["Custom design, no recycled templates",
       "Performance budget enforced before launch",
       "On-page SEO and analytics wired in",
       "Training so your team can update it without us"]),
-    ("UI/UX Designing", "", "https://picsum.photos/seed/gv-uiux/800/800",
+    ("UI/UX Designing", "", "design.jpg",
      ["Research", "Wireframes", "Design system"],
      "Interfaces people understand on the first try. We design the flow before the pixels, so the finished product needs less explaining.",
      ["User research and journey mapping",
       "Wireframes and clickable prototypes",
       "Reusable design system with tokens and components",
       "Usability testing before development starts"]),
-    ("Logo Designing", "", "https://picsum.photos/seed/gv-logo/800/800",
+    ("Logo Designing", "", "logo deisgning.jpg",
      ["Identity", "Marks", "Guidelines"],
      "A mark that still works at sixteen pixels and on a van door. Built with a full identity system, not just one file emailed over.",
      ["Discovery session and moodboards",
@@ -207,13 +250,13 @@ SERVICES = [
 ]
 
 WORKS = [
-    ("Crypto Trading Platform", "UI &bull; Webdesign &bull; Development", "https://picsum.photos/seed/gv-work-crypto/900/700", "Web App",
+    ("Custom Website Development", "UI &bull; Webdesign &bull; Development", "Web.jpg", "Web App",
      "3.4x increase in signup completion", "work--wide"),
-    ("Online Notary Service", "UX &bull; Branding &bull; SEO", "https://picsum.photos/seed/gv-work-notary/900/700", "Branding",
+    ("Online Notary Service", "UX &bull; Branding &bull; SEO", "SeO.jpg", "SEO",
      "Ranked top 3 in 11 cities", "work--tall"),
-    ("Auto Detailing Chain", "Local SEO &bull; Google Ads", "https://picsum.photos/seed/gv-work-auto/900/700", "Local Growth",
+    ("Google Ads", "Local SEO &bull; Google Ads", "Googleads.jpg", "Local Growth",
      "Booked out four weeks ahead", "work--tall"),
-    ("Home Services Group", "Web &bull; Reputation &bull; SMM", "https://picsum.photos/seed/gv-work-home/900/700", "Full Service",
+    ("Reputation Management", "Web &bull; Reputation &bull; SMM", "Services.jpg", "Reputation Management",
      "From 38 to 410 reviews in a year", "work--wide"),
 ]
 
@@ -309,14 +352,16 @@ def services_rail(prefix=""):
     for name, sub, img, tags, lead, points in SERVICES:
         tl = "".join(f"<li>{t}</li>" for t in tags)
         heading = f"{name}<br><span>{sub}</span>" if sub else name
+        slug = f"service-{name.lower().replace(' ', '-').replace('/', '-')}.html"
+        u = img_url(img, prefix)
         cards += f'''
       <article class="card">
         <div class="card__body">
           <h3>{heading}</h3>
           <ul class="tags">{tl}</ul>
-          <a href="{prefix}services.html" class="btn btn--outline">View service</a>
+          <a href="{prefix}{slug}" class="btn btn--outline">View service</a>
         </div>
-        <div class="card__media" style="--img:url('{img_url(img, prefix)}')"></div>
+        <div class="card__media" style="background-image:url('{u}'); --img:url('{u}')"></div>
       </article>'''
     return f'''<section class="services">
   <div class="section-head section-head--center">
@@ -341,8 +386,9 @@ def work_grid(prefix="", limit=None):
     items = WORKS if limit is None else WORKS[:limit]
     out = ""
     for title, meta, img, tag, result, cls in items:
+        u = img_url(img, prefix)
         out += f'''
-    <a href="{prefix}contact.html" class="work {cls}" style="--img:url('{img_url(img, prefix)}')">
+    <a href="{prefix}portfolio.html" class="work {cls}" style="background-image:url('{u}'); --img:url('{u}')">
       <div class="work__meta">
         <span class="work__tag">{tag}</span>
         <h3>{title}</h3>
@@ -550,6 +596,8 @@ svc_items = ""
 for i, (name, sub, img, tags, lead, points) in enumerate(SERVICES, 1):
     pl = "".join(f"<li>{p}</li>" for p in points)
     subtitle = f" <em class='script script--gold'>{sub}</em>" if sub else ""
+    slug = f"service-{name.lower().replace(' ', '-').replace('/', '-')}.html"
+    u = img_url(img)
     svc_items += f'''
   <article class="svc" id="{name.lower().replace(' ', '-').replace('/', '-')}">
     <div class="svc__body">
@@ -557,9 +605,12 @@ for i, (name, sub, img, tags, lead, points) in enumerate(SERVICES, 1):
       <h2>{name}{subtitle}</h2>
       <p class="svc__lead">{lead}</p>
       <ul class="svc__points">{pl}</ul>
-      <a href="contact.html" class="btn btn--outline">Start a project</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+        <a href="{slug}" class="btn btn--glow"><span class="btn__label">Explore Service Page</span><span class="btn__sheen"></span></a>
+        <a href="contact.html" class="btn btn--outline">Start a project</a>
+      </div>
     </div>
-    <div class="svc__art" style="--img:url('{img_url(img)}')"></div>
+    <div class="svc__art" style="background-image:url('{u}'); --img:url('{u}')"></div>
   </article>'''
 
 services_body = f'''{page_hero("Services", "Everything we do, <em class='script script--aqua'>in</em> detail",

@@ -125,12 +125,59 @@ ul{margin:0;padding:0;list-style:none;}
 
 .header-actions{display:flex;align-items:center;gap:14px;flex-shrink:0;}
 .nav__link{position:relative;padding:9px 13px;border-radius:999px;
-  font-size:.85rem;font-weight:500;color:white;transition:color .3s;}
+  font-size:.85rem;font-weight:500;color:white;transition:color .3s;display:inline-flex;align-items:center;}
 .nav__link::after{content:"";position:absolute;left:50%;bottom:4px;height:2px;width:0;
   transform:translateX(-50%);border-radius:2px;
   background:linear-gradient(90deg,var(--gold),var(--aqua));transition:width .35s var(--ease);}
 .nav__link:hover,.nav__link.is-active{color:var(--ink);}
 .nav__link:hover::after,.nav__link.is-active::after{width:24px;}
+
+/* Navigation Dropdown */
+.nav__item{position:relative;display:flex;align-items:center;}
+.nav__item--dropdown{position:relative;}
+.nav__chevron{display:inline-block;margin-left:6px;font-size:.65rem;opacity:.75;transition:transform .3s var(--ease);}
+.nav__item--dropdown:hover .nav__chevron,
+.nav__item--dropdown.is-open .nav__chevron{transform:rotate(180deg);}
+
+.nav__dropdown{
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(8px);
+  width:310px;padding:8px;border-radius:18px;
+  background:rgba(2,16,36,.96);backdrop-filter:blur(24px) saturate(150%);
+  border:1px solid rgba(193,232,255,.16);
+  box-shadow:0 24px 60px -15px rgba(0,0,0,.85), 0 0 0 1px rgba(84,131,179,.25);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s;
+  z-index:100;display:flex;flex-direction:column;gap:3px;
+}
+.nav__dropdown::before{
+  content:"";position:absolute;top:-6px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:12px;height:12px;background:rgba(2,16,36,.96);
+  border-left:1px solid rgba(193,232,255,.16);border-top:1px solid rgba(193,232,255,.16);
+}
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown:focus-within .nav__dropdown,
+.nav__item--dropdown.is-open .nav__dropdown{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);
+}
+
+.dropdown__link{
+  display:block;padding:8px 12px;border-radius:10px;text-decoration:none;
+  color:white;transition:background .2s,transform .2s;
+}
+.dropdown__link:hover{
+  background:rgba(84,131,179,.24);transform:translateX(3px);
+}
+.dropdown__title{display:block;font-size:.82rem;font-weight:600;color:#fff;letter-spacing:.01em;}
+.dropdown__desc{display:block;font-size:.7rem;color:var(--sand-dim);margin-top:2px;line-height:1.2;}
+.dropdown__footer{
+  margin-top:4px;padding-top:6px;border-top:1px solid rgba(193,232,255,.1);text-align:center;
+}
+.dropdown__all{
+  display:block;padding:6px 10px;font-size:.74rem;font-weight:700;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--sand);text-decoration:none;border-radius:8px;
+  transition:color .2s,background .2s;
+}
+.dropdown__all:hover{color:#fff;background:rgba(125,160,202,.2);}
 
 
 .burger{display:none;width:44px;height:38px;border:0;border-radius:12px;cursor:pointer;
@@ -177,8 +224,10 @@ ul{margin:0;padding:0;list-style:none;}
   -webkit-background-clip: initial !important;
   background-clip: initial !important;
 }
-.script--aqua{background:linear-gradient(95deg,var(--aqua),var(--teal-bright));
-  -webkit-background-clip:text;background-clip:text;color:transparent;}
+.script--aqua{
+  background:linear-gradient(95deg,#c9c9ca,#8bbaec);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
 .script--sand{
   background:linear-gradient(95deg,#5485c2,#6d7a7a);
   -webkit-background-clip:text;
@@ -430,6 +479,22 @@ ul{margin:0;padding:0;list-style:none;}
   .nav.is-open{opacity:1;visibility:visible;transform:none;}
   .nav__link{padding:13px 16px;font-size:1rem;}
   .nav__link::after{display:none;}
+  .nav__item--dropdown{width:100%;flex-direction:column;align-items:stretch;}
+  .nav__item--dropdown .nav__link{width:100%;justify-content:space-between;}
+  .nav__dropdown{
+    position:static;width:100%;transform:none;box-shadow:none;
+    background:rgba(2,16,36,.75);margin-top:4px;border-radius:14px;
+    display:none;padding:8px;opacity:1;visibility:visible;pointer-events:auto;
+  }
+  .nav__item--dropdown:hover .nav__dropdown,
+  .nav__item--dropdown.is-open .nav__dropdown,
+  .nav__item--dropdown:focus-within .nav__dropdown{
+    display:flex;
+    position:static;
+    left:auto;
+    width:100%;
+    transform:none;
+  }
 }
 
 .float-cluster__panel a svg,

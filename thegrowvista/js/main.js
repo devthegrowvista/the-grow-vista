@@ -45,11 +45,30 @@
       burger.classList.toggle('is-open', open);
       burger.setAttribute('aria-expanded', String(open));
     });
-    $$('.nav__link', nav).forEach(l => l.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      burger.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
-    }));
+
+    const dropdownItem = $('.nav__item--dropdown', nav);
+    if (dropdownItem) {
+      const trigger = dropdownItem.querySelector('.nav__link');
+      if (trigger) {
+        trigger.addEventListener('click', (e) => {
+          if (window.innerWidth <= 920) {
+            if (!dropdownItem.classList.contains('is-open')) {
+              e.preventDefault();
+              dropdownItem.classList.add('is-open');
+              return;
+            }
+          }
+        });
+      }
+    }
+
+    $$('.nav__link:not(.nav__item--dropdown > .nav__link), .dropdown__link, .dropdown__all', nav).forEach(l => {
+      l.addEventListener('click', () => {
+        nav.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
   }
 
   /* ---------- 3. brand marquee — duplicate for a seamless loop ---------- */
